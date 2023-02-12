@@ -44,19 +44,35 @@ app.use('/users', usersRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// HOME PAGE
 app.get('/', (req, res) => {
   return res.render('register');
 });
 
-app.post('/register'), (req, res) => {
+// REGISTER /GET /POST
+app.get('/register', (req, res) => {
+  return res.render('register')
+});
 
-  return res.render('/login')
-}
+app.post('/register', (req, res) => {
+  return res.redirect('/login')
+});
 
-app.get('/login'), (req, res) => {
+// LOGIN /GET /POST
+app.get('/login', (req, res) => {
   return res.render('login');
-}
+});
 
+app.post('/login', (req, res) => {
+  return res.redirect('/index')
+});
+
+// HOME PAGE /GET
+app.get('/index', (req, res) => {
+  return res.render('index')
+});
+
+//LISTENER
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
