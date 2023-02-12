@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home Page</title>
+  <title>Welcome to ToDo!</title>
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
@@ -20,13 +20,17 @@
     <div class="reg-sign">
       <h4 class="reg">Register</h4>
       <h4 class="highlight">|</h4>
-      <h4 class="sig" onclick="location.href='/login'">Sign in</h4>
+      <h4 class="sig">Sign in</h4>
     </div>
-    <form action="/register" method="POST">
+    <form class ="reg-form"action="/register" method="POST">
       <input name="email" type="email" placeholder="Email"/>
       <input name="password" type="password" placeholder="Password"/>
       <button class="sub" type="submit">Register</button>
     </form>
+    <form class ="sig-form"action="/login" method="POST">
+      <input name="email" type="email" placeholder="Email"/>
+      <input name="password" type="password" placeholder="Password"/>
+      <button class="sub" type="submit">Login</button>
   </div>
 </body>
 </html>
