@@ -12,6 +12,7 @@ header i {
   color: red;
   grid-area: 1/2/2/3;
   justify-self: center;
+  font-size: 24px;
 }
 .header {
   height: 7em;
@@ -139,21 +140,26 @@ main {
   text-align: start;
 }
 .submit {
-  min-width: 6em;
-  max-width: 8em;
-  margin-bottom: 40px;
-  height: 2em;
-  transform-style: preserve-3d;
-  border: none;
-  color: #4aea05;
-  background: linear-gradient(to bottom, #f25f46 40%, #ea0599 60%);
-  border-radius: 0.5em;
-  padding: 0;
-  font-family: "Barlow Semi Condensed", sans-serif;
-  letter-spacing: 0.3em;
-  box-shadow: 0px -3px 10px 0 rgba(#f25f46, 0.1),
-    10px -15px 60px 0 rgba(#f25f46, 0.1), -0 3px 3px 0 rgba(#ea0599, 0.1),
-    -0 15px 60px 0 rgba(#ea0599, 0.1);
+  background-color: #F25F46;
+    color: white;
+    width: 120px;
+    border: none;
+    height: 28px;
+  // min-width: 6em;
+  // max-width: 8em;
+  // margin-bottom: 40px;
+  // height: 2em;
+  // transform-style: preserve-3d;
+  // border: none;
+  // color: #4aea05;
+  // background: linear-gradient(to bottom, #f25f46 40%, #ea0599 60%);
+  // border-radius: 0.5em;
+  // padding: 0;
+  // font-family: "Barlow Semi Condensed", sans-serif;
+  // letter-spacing: 0.3em;
+  // box-shadow: 0px -3px 10px 0 rgba(#f25f46, 0.1),
+  //   10px -15px 60px 0 rgba(#f25f46, 0.1), -0 3px 3px 0 rgba(#ea0599, 0.1),
+  //   -0 15px 60px 0 rgba(#ea0599, 0.1);
 }
 .submit:hover {
   box-shadow: 2px 2px gray, -1px -1px gray;
@@ -193,6 +199,7 @@ article:hover {
   box-shadow: 3px 3px gray;
   border-left: solid 15px #ca06ec;
 }
+
 article i:hover {
   text-shadow: 2px 2px gray;
   color: #7c001d;
@@ -229,13 +236,23 @@ article i:hover {
   }
   header h1 {
     grid-area: 1/1/2/2;
+    padding-left: 30px;
   }
   header i {
     grid-area: 1/2/2/3;
+    font-size: 40px;
   }
   article {
-
     border-left: solid 20px #ca06ec;
+  }
+  article i{
+    font-size: 30px;
+  }
+  .clicked{
+    color: gold;
+  }
+  .clicked:hover{
+    color:#F25F46;
   }
   article lable{
     font-size: 1.4em;
