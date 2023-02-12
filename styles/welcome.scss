@@ -21,6 +21,11 @@ body {
     padding: 0 15px;
   }
 
+  .sig:hover ,.reg:hover {
+    box-shadow: 2px 5px 10px #45C4B0;
+    cursor: pointer;
+  }
+
   span {
     padding: 0 5px;
     color: #45C4B0;
@@ -64,6 +69,7 @@ body {
   }
 
    .sub:hover {
-    color: red;
+    box-shadow: 2px 5px 10px #45C4B0;
+    cursor: pointer;
   }
 

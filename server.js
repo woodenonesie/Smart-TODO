@@ -45,7 +45,7 @@ app.use('/users', usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('register');
+  return res.render('register');
 });
 
 app.post('/register'), (req, res) => {
@@ -54,7 +54,7 @@ app.post('/register'), (req, res) => {
 }
 
 app.get('/login'), (req, res) => {
-  res.render('login');
+  return res.render('login');
 }
 
 app.listen(PORT, () => {
