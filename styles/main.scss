@@ -205,9 +205,16 @@ article i:hover {
   width: 95%;
   gap: 20px;
 }
-#myDropdown a:hover {
-  text-shadow: 3px #ca06ec;
+.dropdown-content span{
+  color: #0109ea;
+  cursor: pointer;
 }
+.dropdown-content span:hover{
+  text-shadow:0.5px 0.5px 0.5px #ea0599;
+  text-decoration: underline;
+
+}
+
 //+++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++ Change The Display Size +++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++
@@ -257,5 +264,7 @@ article i:hover {
   #leftSideList {
     width: 60%;
   }
-
+  .dropdown-content span{
+font-size: 1.2em;
+  }
 }
