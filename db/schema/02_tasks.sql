@@ -1,4 +1,4 @@
--- Drop and recreate Widgets table (Example)
+-- Drop and recreate tasks table (Example)
 
 DROP TABLE IF EXISTS tasks CASCADE;
 CREATE TABLE tasks (
