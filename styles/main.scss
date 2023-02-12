@@ -1,7 +1,18 @@
-html{
+html {
   margin: 0;
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++  HEADER
+
+header h1 {
+  color: #eaeaea;
+  grid-area: 1/1/2/2;
+}
+header i {
+  color: red;
+  grid-area: 1/2/2/3;
+  justify-self: center;
+}
 .header {
   height: 7em;
   background-color: #13678a;
@@ -13,17 +24,6 @@ html{
   gap: 10px;
   position: fixed;
 }
-
-header h1 {
-  color: #eaeaea;
-  grid-area: 1/1/2/2;
-}
-header i {
-  color: red;
-  grid-area: 1/2/2/3;
-  justify-self: center;
-}
-
 .navBar {
   justify-self: end;
   grid-area: 1/4/2/5;
@@ -46,11 +46,10 @@ header i {
   grid-area: 2/2/3/3;
   text-align: center;
 }
-
+//++++++++++++++++++++++++++++++++++++++++++  BODY
 body {
   margin: 0;
   min-height: 100vh;
-
   background: rgb(163, 208, 219);
   background: linear-gradient(
     227deg,
@@ -62,37 +61,32 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+//++++++++++++++++++++++++++++++++++++++++   Main
 main {
   height: 100%;
   display: flex;
   flex-direction: row;
 }
 
-article {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  border: solid 0.1em black;
-}
+//+++++++++++++++++++++++++++++++++++  Left SideBar
 
+#leftSideList {
+  width: 80%;
+  text-align: center;
+  align-items: center;
+  justify-items: baseline;
+  margin: 150px auto;
+  display: grid;
+  column-gap: 1em;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: repeat(5, 40px);
+}
 .leftSidebar {
   width: 20%;
   min-width: 120px;
   min-height: 100vh;
   background-color: #e4f2e7;
 }
-#leftSideList {
-  width: 80%;
-  text-align: center;
-  align-items: center;
-  justify-items: baseline;
-  margin:150px auto;
-  display: grid;
-  column-gap: 1em;
-  grid-template-columns: 1fr 6fr;
-  grid-template-rows: repeat(5, 40px);
-}
-
 .dot1 {
   height: 10px;
   width: 10px;
@@ -134,55 +128,52 @@ article {
   grid-area: 5/1/6/2;
 }
 
-
-.contents{
+//+++++++++++++++++++++++++++++++++++++++   NEW Task Form
+.contents {
   margin: 120px 10px 5px 10px;
   width: 80%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   text-align: start;
 }
-.submit{
-    width: 20%;
-  min-width: 7em;
-  max-width: 10em;
-   margin-bottom: 40px;
+.submit {
+  min-width: 6em;
+  max-width: 8em;
+  margin-bottom: 40px;
   height: 2em;
-  transform-style: preserve-3d;  // pass down the 3D perspective from the parent
+  transform-style: preserve-3d;
   border: none;
   color: #4aea05;
-  background: linear-gradient(to bottom, #F25F46 40%, #EA0599 60%); // create the top and bottom "walls" on the button
+  background: linear-gradient(to bottom, #f25f46 40%, #ea0599 60%);
   border-radius: 0.5em;
   padding: 0;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
   letter-spacing: 0.3em;
-  box-shadow:
-    0px -3px 10px 0 rgba(#F25F46, 0.1), // top tight glow
-    10px -15px 60px 0 rgba(#F25F46, 0.1), // top large glow
-    -0 3px 3px 0 rgba(#EA0599, 0.1), // bottom tight shadow
-    -0 15px 60px 0 rgba(#EA0599, 0.1);
+  box-shadow: 0px -3px 10px 0 rgba(#f25f46, 0.1),
+    10px -15px 60px 0 rgba(#f25f46, 0.1), -0 3px 3px 0 rgba(#ea0599, 0.1),
+    -0 15px 60px 0 rgba(#ea0599, 0.1);
 }
-.submit:hover{
-  box-shadow: 2px 2px gray,-1px -1px gray;
+.submit:hover {
+  box-shadow: 2px 2px gray, -1px -1px gray;
   font-size: 1.05em;
   text-transform: uppercase;
 }
-.taskForm{
+.taskForm {
   display: flex;
   flex-direction: column;
 }
-
-.taskForm textarea{
+.taskForm textarea {
   height: 2em;
   background: transparent;
   margin-top: 10px;
   border: none;
-  border-bottom: solid 2px #13678A;
+  border-bottom: solid 2px #13678a;
   justify-items: center;
 }
-article{
+//+++++++++++++++++++++++++++++++++++++++++ Article boxes
+article {
   width: 90%;
   padding-left: 10px;
   font-size: 18px;
@@ -190,28 +181,36 @@ article{
   margin: auto;
   height: 5em;
   border-radius: 6px;
-  border-left: solid 8px #ca06ec;
+  border: solid 0.1em black;
+  border-left: solid 10px #ca06ec;
   align-items: center;
+  justify-content: center;
   display: grid;
   grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1;
   text-align: start;
 }
-article:hover{
+article:hover {
   box-shadow: 3px 3px gray;
   border-left: solid 15px #ca06ec;
 }
-article i:hover{
+article i:hover {
   text-shadow: 2px 2px gray;
   color: #7c001d;
 }
-
-#myDropdown{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#myDropdown {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: end;
+  width: 95%;
+  gap: 20px;
 }
+#myDropdown a:hover {
+  text-shadow: 3px #ca06ec;
+}
+//+++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++ Change The Display Size +++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++
 
 
 @media only screen and (min-width: 600px) {
@@ -220,16 +219,24 @@ article i:hover{
     grid-template-columns: 1fr 0.5fr 3fr 7fr;
     align-items: center;
     gap: 20px;
-
   }
-
   header h1 {
     grid-area: 1/1/2/2;
   }
   header i {
     grid-area: 1/2/2/3;
   }
+  article {
 
+    border-left: solid 20px #ca06ec;
+  }
+  article lable{
+    font-size: 1.4em;
+  }
+  article:hover {
+    box-shadow: 3px 3px gray;
+    border-left: solid 25px #ca06ec;
+  }
   .navBar {
     grid-area: 1/4/2/5;
     display: grid;
@@ -249,13 +256,6 @@ article i:hover{
   }
   #leftSideList {
     width: 60%;
-}
-article{
-    border-left: solid 20px #ca06ec;
-}
-article:hover{
-  box-shadow: 3px 3px gray;
-  border-left: solid 25px #ca06ec;
-}
+  }
 
 }
