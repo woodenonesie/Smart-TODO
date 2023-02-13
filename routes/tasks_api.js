@@ -8,8 +8,17 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
+const query = require('../db/queries/tasks')
+
+//create
+//change
+//delete
 
 router.get('/', (req, res) => {
+
+})
+
+router.post('/create', (req, res) => {
   const query = `SELECT * FROM widgets`;
   console.log(query);
   db.query(query)
