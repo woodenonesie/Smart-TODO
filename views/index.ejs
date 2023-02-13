@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Home Page</title>
 
-<head>
-  <title>Home Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+  </head>
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-</head>
+  <body>
+    <header class="header">
+      <h1>ToDo</h1>
+      <i id="new-task-plus" class="fa-solid fa-plus"></i>
+      <nav class="navBar">
+        <lable id="welcomTag">Welcome back,<spna>Username!</spna></lable>
+        <lable id="updateBt">Update Profile</lable>
+        <lable id="logOut">Log Out</lable>
+      </nav>
+    </header>
 
-<body>
-  <h1>Have fun! 🥔</h1>
-</body>
+    <main class="main">
+      <div class="leftSidebar">
+        <div id="leftSideList">
+          <span class="dot1"></span>
+          <lable class="textBox">To Watch</lable>
+          <span class="dot2"></span>
+          <lable class="textBox">To Eat</lable>
+          <span class="dot3"></span>
+          <lable class="textBox">To Read</lable>
+          <span class="dot4"></span>
+          <lable class="textBox">To Buy</lable>
+          <span class="dot5"></span>
+          <lable class="textBox">Other</lable>
+        </div>
+      </div>
 
+      <div class="contents">
+        <div class="taskDiv">
+          <form class="taskForm" action="/submit" method="POST">
+            <label for="newTask">New Task :</label>
+            <textarea type="text" name="newTask"></textarea>
+            <br />
+            <button type="submit" class="submit">add</button>
+          </form>
+        </div>
+        <section>
+          <article>
+            <lable>the name of the task</lable>
+            <i id="star" class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-flag"></i>
+            <i class="fa-regular fa-circle-xmark"></i>
+            <i id="folder" class="fa-regular fa-folder"></i>
+          </article>
+          <div id="myDropdown" class="dropdown-content">
+            <span id="watch">To Watch</span>
+            <span id="read">To Eat</span>
+            <span id="eat">To Read</span>
+            <span id="buy">To Buy</span>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>

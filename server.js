@@ -5,7 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-
+const db = require('./db/connection')
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -28,16 +28,13 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const welcomeRoutes = require('./routes/welcome')
-const homeRoutes = require('./routes/home')
+const homeRoutes = require('./routes/home');
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/', welcomeRoutes);
 app.use('/index', homeRoutes)
