@@ -1,5 +1,3 @@
-
-
 html {
   margin: 0;
 }
@@ -7,6 +5,7 @@ html {
 // ++++++++++++++++++++++++++++++++++++++++++  HEADER
 
 header h1 {
+  margin: 0;
   color: #eaeaea;
   grid-area: 1/1/2/2;
 }
@@ -17,7 +16,7 @@ header i {
   font-size: 24px;
 }
 .header {
-  height: 7em;
+  height: 5em;
   background-color: #13678a;
   width: 100%;
   padding: 10px;
@@ -136,7 +135,7 @@ main {
   margin: 120px 10px 5px 10px;
   width: 80%;
   text-align: center;
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 10px;
   text-align: start;
@@ -154,8 +153,11 @@ main {
   text-transform: uppercase;
 }
 .taskForm {
+  visibility:hidden;
   display: flex;
+  width:95%;
   flex-direction: column;
+  margin: auto;
 }
 .taskForm textarea {
   height: 2em;
@@ -165,6 +167,11 @@ main {
   border-bottom: solid 2px #13678a;
   justify-items: center;
 }
+#pushPlus{
+margin:40px 30px;
+color: #4e4e4e;
+}
+
 //+++++++++++++++++++++++++++++++++++++++++ Article boxes
 article {
   width: 90%;
@@ -172,6 +179,7 @@ article {
   font-size: 18px;
   font-family: cursive;
   margin: auto;
+  margin-top: 20px;
   height: 5em;
   border-radius: 6px;
   border: solid 0.1em black;
@@ -194,9 +202,8 @@ article i:hover {
 #myDropdown {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: right;
+  flex-direction: row;
+  justify-content: end;
   width: 95%;
   gap: 20px;
 }
@@ -209,15 +216,13 @@ article i:hover {
   text-decoration: underline;
 
 }
-
-#updateBt:hover {
-  cursor: pointer;
-
+.clicked{
+  color: gold !important;
+}
+.clicked:hover{
+  color:#F25F46;
 }
 
-#logOut {
-  cursor: pointer;
-}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++ Change The Display Size +++++++++
@@ -245,12 +250,7 @@ article i:hover {
   article i{
     font-size: 30px;
   }
-  .clicked{
-    color: gold;
-  }
-  .clicked:hover{
-    color:#F25F46;
-  }
+
   article lable{
     font-size: 1.4em;
   }

@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+const db = require('../db/connection');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
@@ -22,3 +23,7 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
