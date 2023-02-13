@@ -5,6 +5,7 @@ html {
 // ++++++++++++++++++++++++++++++++++++++++++  HEADER
 
 header h1 {
+  margin: 0;
   color: #eaeaea;
   grid-area: 1/1/2/2;
 }
@@ -15,7 +16,7 @@ header i {
   font-size: 24px;
 }
 .header {
-  height: 7em;
+  height: 5em;
   background-color: #13678a;
   width: 100%;
   padding: 10px;
@@ -134,7 +135,7 @@ main {
   margin: 120px 10px 5px 10px;
   width: 80%;
   text-align: center;
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 10px;
   text-align: start;
@@ -145,21 +146,6 @@ main {
     width: 120px;
     border: none;
     height: 28px;
-  // min-width: 6em;
-  // max-width: 8em;
-  // margin-bottom: 40px;
-  // height: 2em;
-  // transform-style: preserve-3d;
-  // border: none;
-  // color: #4aea05;
-  // background: linear-gradient(to bottom, #f25f46 40%, #ea0599 60%);
-  // border-radius: 0.5em;
-  // padding: 0;
-  // font-family: "Barlow Semi Condensed", sans-serif;
-  // letter-spacing: 0.3em;
-  // box-shadow: 0px -3px 10px 0 rgba(#f25f46, 0.1),
-  //   10px -15px 60px 0 rgba(#f25f46, 0.1), -0 3px 3px 0 rgba(#ea0599, 0.1),
-  //   -0 15px 60px 0 rgba(#ea0599, 0.1);
 }
 .submit:hover {
   box-shadow: 2px 2px gray, -1px -1px gray;
@@ -167,8 +153,11 @@ main {
   text-transform: uppercase;
 }
 .taskForm {
+  visibility:hidden;
   display: flex;
+  width:95%;
   flex-direction: column;
+  margin: auto;
 }
 .taskForm textarea {
   height: 2em;
@@ -178,6 +167,11 @@ main {
   border-bottom: solid 2px #13678a;
   justify-items: center;
 }
+#pushPlus{
+margin:40px 30px;
+color: #4e4e4e;
+}
+
 //+++++++++++++++++++++++++++++++++++++++++ Article boxes
 article {
   width: 90%;
@@ -185,6 +179,7 @@ article {
   font-size: 18px;
   font-family: cursive;
   margin: auto;
+  margin-top: 20px;
   height: 5em;
   border-radius: 6px;
   border: solid 0.1em black;
@@ -221,6 +216,13 @@ article i:hover {
   text-decoration: underline;
 
 }
+.clicked{
+  color: gold !important;
+}
+.clicked:hover{
+  color:#F25F46;
+}
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++ Change The Display Size +++++++++
@@ -248,12 +250,7 @@ article i:hover {
   article i{
     font-size: 30px;
   }
-  .clicked{
-    color: gold;
-  }
-  .clicked:hover{
-    color:#F25F46;
-  }
+
   article lable{
     font-size: 1.4em;
   }
