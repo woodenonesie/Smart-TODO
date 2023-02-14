@@ -7,7 +7,7 @@ const newCategory = (task) => {
     "To Buy": ["Music & Audio", "Autos & Vehicles", "Computers & Electronics", "Games", "Crafts", "Home & Garden", "Animal Products & Services", "Real Estate", "Shopping", "Sporting Goods"],
     "To Eat": ["Food & Drink"],
     "To Read": ["Books & Literature", "News"]
-  }
+  };
   // Send a POST request
   return axios({
     method: 'post',
@@ -39,7 +39,7 @@ const newCategory = (task) => {
         }
         return "Other";
       }
-    })
+    });
 };
 
 

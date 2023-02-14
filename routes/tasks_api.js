@@ -7,8 +7,8 @@
 
 const express = require('express');
 const router = express.Router();
-const query = require('../db/queries/tasks')
-const newCategory = require('./helpers/categoryApi.js')
+const query = require('../db/queries/tasks');
+const newCategory = require('./helpers/categoryApi.js');
 
 //change
 //delete
@@ -22,13 +22,13 @@ router.get('/', (req, res) => {
   const userId = 1;
   query.getAllUserTasks(userId)
     .then(data => {
-      res.json({ data })
+      res.json({ data });
     })
     .catch(e => {
       console.error(e);
-      res.send(e)
-    })
-})
+      res.send(e);
+    });
+});
 
 router.post('/create', (req, res) => {
   if (!req.body.text) {
@@ -44,11 +44,11 @@ router.post('/create', (req, res) => {
       const newTask = {
         task,
         category
-      }
+      };
       return newTask;
     })
     .then((newTask) => {
-      query.newTask(userId, newTask)
+      query.newTask(userId, newTask);
     })
     .then(() => {
       res.json({ "success": true });
@@ -57,7 +57,7 @@ router.post('/create', (req, res) => {
       res
         .status(500)
         .json({ error: err.message });
-    })
+    });
 });
 
 router.post('/change/:id', (req, res) => {
@@ -69,16 +69,16 @@ router.post('/change/:id', (req, res) => {
   const userId = 1;
   const taskId = req.params.id;
   const newCategory = req.body.newCategory;
-    query.editTask(userId, taskId, newCategory)
-      .then(() => {
-        res.json({ "success": true });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      })
-})
+  query.editTask(userId, taskId, newCategory)
+    .then(() => {
+      res.json({ "success": true });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
 router.post('/delete/:id', (req, res) => {
   // const userId = req.session.userId;
@@ -96,7 +96,7 @@ router.post('/delete/:id', (req, res) => {
       res
         .status(500)
         .json({ error: err.message });
-    })
-})
+    });
+});
 
 module.exports = router;

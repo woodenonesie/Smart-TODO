@@ -6,7 +6,7 @@ const getAllUserTasks = (user_id) => {
   SELECT * FROM tasks
   WHERE user_id = $1;
   `,
-      [user_id])
+    [user_id])
     .then((result) => {
       if (result) {
         return result.rows;
@@ -16,8 +16,8 @@ const getAllUserTasks = (user_id) => {
     })
     .catch((err) => {
       console.log(err.message);
-    })
-}
+    });
+};
 exports.getAllUserTasks = getAllUserTasks;
 
 
@@ -27,7 +27,7 @@ const newTask = (user_id, task) => {
   INSERT INTO tasks (user_id, task, category)
     VALUES ($1, $2, $3)
     RETURNING*;`,
-      [user_id, task.task, task.category])
+    [user_id, task.task, task.category])
     .then((result) => {
       if (result) {
         console.log(result.rows);
@@ -38,8 +38,8 @@ const newTask = (user_id, task) => {
     })
     .catch((err) => {
       console.log(err.message);
-    })
-}
+    });
+};
 exports.newTask = newTask;
 
 
@@ -49,7 +49,7 @@ const deleteTask = (user_id, id) => {
     DELETE FROM tasks
     WHERE user_id = $1 AND id = $2
     RETURNING *;`,
-      [user_id, id])
+    [user_id, id])
     .then((result) => {
       if (result) {
         console.log(result.rows);
@@ -60,8 +60,8 @@ const deleteTask = (user_id, id) => {
     })
     .catch((err) => {
       console.log(err.message);
-    })
-}
+    });
+};
 exports.deleteTask = deleteTask;
 
 
@@ -72,7 +72,7 @@ const editTask = (user_id, id, category) => {
     SET category = $3
     WHERE user_id = $1 AND id = $2
     RETURNING *;`,
-      [user_id, id, category])
+    [user_id, id, category])
     .then((result) => {
       if (result) {
         console.log(result.rows);
@@ -83,6 +83,6 @@ const editTask = (user_id, id, category) => {
     })
     .catch((err) => {
       console.log(err.message);
-    })
-}
+    });
+};
 exports.editTask = editTask;
