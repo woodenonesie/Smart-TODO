@@ -4,12 +4,11 @@ const getAllUserTasks = (user_id) => {
   return db
     .query(`
   SELECT * FROM tasks
-  WHERE iser_id = $1;
+  WHERE user_id = $1;
   `,
       [user_id])
     .then((result) => {
       if (result) {
-        console.log(result.rows);
         return result.rows;
       } else {
         return null;
@@ -24,10 +23,10 @@ exports.getAllUserTasks = getAllUserTasks;
 const newTask = (user_id, task) => {
   return db
     .query(`
-  INSERT INTO tasks (user_id, name, category)
+  INSERT INTO tasks (user_id, task, category)
     VALUES ($1, $2, $3)
     RETURNING*;`,
-      [user_id, task.name, task.category])
+      [user_id, task.task, task.category])
     .then((result) => {
       if (result) {
         console.log(result.rows);

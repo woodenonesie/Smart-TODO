@@ -1,10 +1,10 @@
 // load .env data into process.env
 require('dotenv').config();
-
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const newCategory = require('./routes/helpers/categoryApi.js')
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -23,14 +23,13 @@ app.use(
     destination: __dirname + '/public/styles',
     isSass: false, // false => scss, true => sass
   })
-);
-app.use(express.static('public'));
-
-// Separated Routes for each Resource
-//api/category/endpoint
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+  );
+  app.use(express.static('public'));
+  // Separated Routes for each Resource
+  //api/category/endpoint
+  // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 const tasksRoutes = require('./routes/tasks_api');
-app.use('/api/tsks', tasksRoutes);
+app.use('/api/tasks', tasksRoutes);
 
 //ures/endpoints
 

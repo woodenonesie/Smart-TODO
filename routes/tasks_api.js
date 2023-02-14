@@ -7,30 +7,55 @@
 
 const express = require('express');
 const router  = express.Router();
-const db = require('../db/connection');
 const query = require('../db/queries/tasks')
+const newCategory = require('./helpers/categoryApi.js')
 
-//create
 //change
 //delete
 
 router.get('/', (req, res) => {
-
+  // const userId = req.session.userId;
+  // if (!userId) {
+  //   res.error("Please log in");
+  //   return;
+  // }
+  const userId = 1;
+  query.getAllUserTasks(userId)
+  .then(data => {
+    res.json({data})})
+  .catch(e => {
+    console.error(e);
+    res.send(e)
+  })
 })
 
 router.post('/create', (req, res) => {
-  const query = `SELECT * FROM widgets`;
-  console.log(query);
-  db.query(query)
-    .then(data => {
-      const widgets = data.rows;
-      res.json({ widgets });
-    })
+  if (!req.body.text) {
+    res.status(400).json({ error: 'invalid request: no data in POST body'});
+    return;
+  }
+  // const userId = req.session.userId;
+  const userId = 1;
+  const task = req.body.text;
+
+  newCategory.newCategory(task)
+  .then((category) => {
+    const newTask = {
+      task,
+      category
+    }
+    return newTask;
+  })
+  .then((newTask) => {
+  query.newTask(userId, newTask)})
+  .then(() => {
+    res.json({"success": true});
+  })
     .catch(err => {
       res
         .status(500)
         .json({ error: err.message });
-    });
+    })
 });
 
 module.exports = router;
