@@ -20,6 +20,7 @@ const getAllUserTasks = (user_id) => {
 }
 exports.getAllUserTasks = getAllUserTasks;
 
+
 const newTask = (user_id, task) => {
   return db
     .query(`
@@ -39,14 +40,14 @@ const newTask = (user_id, task) => {
       console.log(err.message);
     })
 }
-
 exports.newTask = newTask;
+
 
 const deleteTask = (user_id, id) => {
   return db
     .query(`
     DELETE FROM tasks
-    WHERE user_id = $1 AND id = $2;
+    WHERE user_id = $1 AND id = $2
     RETURNING *;`,
       [user_id, id])
     .then((result) => {
@@ -61,15 +62,15 @@ const deleteTask = (user_id, id) => {
       console.log(err.message);
     })
 }
-
 exports.deleteTask = deleteTask;
+
 
 const editTask = (user_id, id, category) => {
   return db
     .query(`
     UPDATE tasks
     SET category = $3
-    WHERE user_id = $1 AND id = $2;
+    WHERE user_id = $1 AND id = $2
     RETURNING *;`,
       [user_id, id, category])
     .then((result) => {
@@ -84,5 +85,4 @@ const editTask = (user_id, id, category) => {
       console.log(err.message);
     })
 }
-
 exports.editTask = editTask;
