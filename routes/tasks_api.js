@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
   const userId = 1;
   query.getAllUserTasks(userId)
     .then(data => {
-      res.json({ data });
+      res.json(data);
     })
     .catch(e => {
       console.error(e);
