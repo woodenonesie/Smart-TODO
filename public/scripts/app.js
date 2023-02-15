@@ -39,7 +39,7 @@ $("#star").on('click', () => {
 $("#plusSign").on('click', () => {
   if ($('.update').is(':hidden')) {
     $(".taskForm").slideToggle();
-    }
+  }
   $("#pushPlus").slideToggle(400);
   $('.update').hide();
 
@@ -48,27 +48,14 @@ $("#plusSign").on('click', () => {
 // SLIDE TOGGLE FOR UPDATE PROFILE
 $('#updateBt').on('click', () => {
   if ($('.update').is(':hidden')) {
-  $("#pushPlus").slideUp();
-  $(".taskForm").slideUp();
-  $('.update').slideDown(400);
+    $("#pushPlus").slideUp();
+    $(".taskForm").slideUp();
+    $('.update').slideDown(400);
   }
 })
 
 // RESET NEW TASK FORM WHEN UPDATED PROFILE
 $('.sub').on('submit', () => {
   $('.update').hide();
-})
-
-$('#delete').on('click', () => {
-  $.ajax({
-    type: "POST",
-    url: "localhost:8080/index/logout",
-    success: function (){
-      router.post('/logout', (req, res) => {
-        req.session = null;
-        return res.redirect('/');
-      })
-    }
-  })
 })
 

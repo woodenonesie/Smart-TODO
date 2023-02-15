@@ -1,17 +1,28 @@
 // HOME PAGE /GET
 const express = require('express');
 const router  = express.Router();
+const db = require('../db/connection')
+
+module.exports = () => {
 
 router.get('/', (req, res) => {
   if (!req.session.userID) {
     return res.redirect('/')
   }
+  console.log(req.session.userID)
   return res.render('index')
 });
 
 router.post('/update', (req, res) => {
   console.log(req.body);
-  return res.redirect('/index')
+  const email = req.body.email;
+  const password = req.body.password;
+  const id = req.session.usedID;
+  return db.query(`
+  UPDATE users SET email = $1, password = $2 WHERE users.id = $3;`, [email, password, id])
+  .then((result) => {
+    return res.redirect('/index')
+  })
 })
 
 router.post('/new', (req, res) => {
@@ -23,5 +34,7 @@ router.post('/logout', (req, res) => {
   return res.redirect('/');
 })
 
-module.exports = router;
+return router;
+
+}
 
