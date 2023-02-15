@@ -27,7 +27,7 @@
       <h1>ToDo</h1>
       <i id="plusSign" class="fa-solid fa-plus"></i>
       <nav class="navBar">
-        <label id="welcomeTag">Welcome back, <span>Username!</span></label>
+        <label id="welcomeTag">Welcome back, <span><%= userEmail %></span></label>
         <button class="sub" id="updateBt">Update Profile</button>
         <form id="logOut" action="/index/logout" method="POST">
           <button class="sub" type="submit">Logout</button></form>
@@ -66,8 +66,8 @@
         <div class="update">
           <form class ="pro-update" action="/index/update" method="POST">
             <label>Update profile:</label>
-            <input name="email" type="email" placeholder="Email"/>
-            <input name="password" type="password" placeholder="Password"/>
+            <input name="email" type="email" placeholder="Changed email"/>
+            <input name="password" type="password" placeholder="Changed password"/>
             <button class="sub" type="submit">Submit</button>
             </form>
         </div>

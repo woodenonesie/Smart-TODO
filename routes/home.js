@@ -10,8 +10,11 @@ router.get('/', (req, res) => {
   if (!req.session.userID) {
     return res.redirect('/')
   }
+  console.log(req.session)
+  const userEmail = req.session.userEmail
+  console.log('userEmail', userEmail)
   console.log("req.session.userID", req.session.userID)
-  return res.render('index')
+  return res.render('index', {userEmail})
 });
 
 router.post('/update', (req, res) => {
@@ -19,7 +22,6 @@ router.post('/update', (req, res) => {
   const updatedEmail = req.body.email;
   const updatedPassword = bcrypt.hashSync(req.body.password, 10);
   const updatedId = req.session.userID;
-  console.log('updatedId',updatedId)
   if (!updatedEmail || !updatedPassword) {
     return res.status(400).send("Please fill in email and password fields. <a href='/'>Try again</a>");
   }
@@ -32,10 +34,12 @@ router.post('/update', (req, res) => {
   .then((result) => {
     console.log('testing')
     if (result.rows.length > 0) {
+      console.log(result)
       return res.status(400).send("Please enter a different email <a href='/'>Try again</a>")
     } else {
       db.query(`
       UPDATE users SET email = $1, password = $2 WHERE users.id = $3;`, [updatedEmail, updatedPassword, updatedId])
+      req.session.userEmail = updatedEmail;
       return res.redirect('/index')
     }
   })

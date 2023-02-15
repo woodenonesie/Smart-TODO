@@ -75,6 +75,7 @@ router.post('/login', (req, res) => {
       }
       console.log('b')
       req.session.userID = user.id
+      req.session.userEmail = user.email
       return res.redirect('/index')
     })
     .catch(e => {
