@@ -15,9 +15,10 @@ router.get('/', (req, res) => {
 
 router.post('/register', (req, res) => {
   const user = req.body;
-  // user.password = bcrypt.hashSync(user.password, 10);
+  user.password = bcrypt.hashSync(user.password, 10);
   const newEmail = user.email;
   const newPassword = user.password;
+  console.log(newPassword);
   db.query(`SELECT * FROM users WHERE email = $1;`, [newEmail])
   .then((result) => {
     if (result.rows.length > 0) {
@@ -54,8 +55,8 @@ exports.getUserWithEmail = getUserWithEmail;
 const login =  function(email, password) {
   return getUserWithEmail(email)
   .then(user => {
-    // if (bcrypt.compareSync(password, user.password)) {
-    if (password === user.password) {
+    if (bcrypt.compareSync(password, user.password)) {
+    // if (password === user.password) {
       return user;
     }
     return null;

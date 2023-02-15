@@ -2,6 +2,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection')
+const bcrypt = require('bcrypt')
 
 module.exports = () => {
 
@@ -14,17 +15,31 @@ router.get('/', (req, res) => {
 });
 
 router.post('/update', (req, res) => {
-  console.log('1', req.body)
-  const email = req.body.email;
-  const password = req.body.password;
-  const id = req.session.usedID;
-  console.log('3', email, password, id)
-  return db.query(`
-  UPDATE users SET email = $1, password = $2 WHERE users.id = $3;`, [email, password, id])
+  console.log('1', req.body);
+  const updatedEmail = req.body.email;
+  const updatedPassword = bcrypt.hashSync(req.body.password, 10);
+  const updatedId = req.session.userID;
+  console.log('updatedId',updatedId)
+  if (!updatedEmail || !updatedPassword) {
+    return res.status(400).send("Please fill in email and password fields. <a href='/'>Try again</a>");
+  }
+  console.log('vvv')
+  db.query(`SELECT * FROM users WHERE users.id = $1;`, [updatedId])
   .then((result) => {
-    console.log('2', result)
-    return res.redirect('/index')
+    console.log('IM HEREEEEEE')
+    return db.query(`SELECT * from users WHERE email = $1;`, [updatedEmail])
   })
+  .then((result) => {
+    console.log('testing')
+    if (result.rows.length > 0) {
+      return res.status(400).send("Please enter a different email <a href='/'>Try again</a>")
+    } else {
+      db.query(`
+      UPDATE users SET email = $1, password = $2 WHERE users.id = $3;`, [updatedEmail, updatedPassword, updatedId])
+      return res.redirect('/index')
+    }
+  })
+  return;
 })
 
 router.post('/new', (req, res) => {
