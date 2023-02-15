@@ -1,48 +1,50 @@
 // load .env data into process.env
-require('dotenv').config();
+require("dotenv").config();
 
 // Web server config
-const sassMiddleware = require('./lib/sass-middleware');
-const express = require('express');
-const morgan = require('morgan');
-const db = require('./db/connection')
+const sassMiddleware = require("./lib/sass-middleware");
+const express = require("express");
+const morgan = require("morgan");
+const db = require("./db/connection");
 const PORT = process.env.PORT || 8080;
 const app = express();
-const cookieSession = require('cookie-session')
+const cookieSession = require("cookie-session");
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
-  '/styles',
+  "/styles",
   sassMiddleware({
-    source: __dirname + '/styles',
-    destination: __dirname + '/public/styles',
+    source: __dirname + "/styles",
+    destination: __dirname + "/public/styles",
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static('public'));
-app.use(cookieSession({
-  name: 'session',
-  keys: ['abcEasyAs123']
-}));
+app.use(express.static("public"));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["abcEasyAs123"],
+  })
+);
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 // const usersRoutes = require('./routes/users');
-const welcomeRoutes = require('./routes/welcome')
-const homeRoutes = require('./routes/home');
+const welcomeRoutes = require("./routes/welcome");
+const homeRoutes = require("./routes/home");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 // app.use('/users', usersRoutes());
 
-app.use('/', welcomeRoutes(db));
-app.use('/index', homeRoutes(db))
+app.use("/", welcomeRoutes(db));
+app.use("/index", homeRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
