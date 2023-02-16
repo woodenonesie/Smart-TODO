@@ -200,7 +200,6 @@ article {
   height: 5em;
   border-radius: 6px;
   border: solid 0.1em black;
-  border-left: solid 10px #ca06ec;
   align-items: center;
   justify-content: center;
   display: grid;
@@ -209,7 +208,6 @@ article {
 }
 article:hover {
   box-shadow: 3px 3px gray;
-  border-left: solid 15px #ca06ec;
 }
 
 article i:hover {
@@ -242,9 +240,27 @@ article i:hover {
   color:#F25F46;
 }
 
-.watch {
-  border-left: #45c4b0 20px groove;
+#Watch {
+  border-left: #45c4b0 20px solid;
 }
+
+#Eat {
+  border-left: #ca06ec 20px solid;
+}
+
+#Read {
+  border-left: #7c001d 20px solid;
+}
+
+#Buy {
+  border-left: #0109ea 20px solid;
+}
+
+#Other {
+  border-left: #ffbf00 20px solid;
+}
+
+
 //+++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++ Change The Display Size +++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++
@@ -265,9 +281,7 @@ article i:hover {
     grid-area: 1/2/2/3;
     font-size: 40px;
   }
-  article {
-    border-left: solid 20px #ca06ec;
-  }
+
   article i{
     font-size: 30px;
   }
@@ -277,7 +291,6 @@ article i:hover {
   }
   article:hover {
     box-shadow: 3px 3px gray;
-    border-left: solid 25px #ca06ec;
   }
   .navBar {
     grid-area: 1/4/2/5;

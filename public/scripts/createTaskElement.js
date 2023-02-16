@@ -1,10 +1,9 @@
 const createTaskElement = function(task) {
   const itemName = task.task;
   const itemId = task.id;
-  const category = task.category;
-
+  const category = task.category.replace("To ", "");
   const $task = `
-          <article class="taskArticle" data-taskcategory="${category}">
+          <article class="taskArticle" id="${category}">
           <lable>${itemName}</lable>
           <i  class="fa-regular fa-star"></i>
           <i  class="fa-regular fa-circle-xmark" data-taskid="${itemId}"></i>
