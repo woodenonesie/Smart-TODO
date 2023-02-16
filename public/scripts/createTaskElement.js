@@ -6,7 +6,7 @@ const createTaskElement = function(task) {
           <article class = "taskArticle">
           <lable>${itemName}</lable>
           <i  class="fa-regular fa-star"></i>
-          <i  class="fa-regular fa-circle-xmark" data-taskId="${itemId}"></i>
+          <i  class="fa-regular fa-circle-xmark" data-taskid="${itemId}"></i>
           <i  class="fa-regular fa-folder"></i>
           <div class="dropdown-content">
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Watch</span>

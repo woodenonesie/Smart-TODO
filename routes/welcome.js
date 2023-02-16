@@ -33,7 +33,7 @@ module.exports = (db) => {
       RETURNING *;`,
             [newEmail, newPassword]
           )
-            .then((result) => {
+            .then(() => {
               return res.redirect("/");
             })
             .catch((err) => {
@@ -97,4 +97,4 @@ module.exports = (db) => {
       });
   });
   return router;
-};
+}
