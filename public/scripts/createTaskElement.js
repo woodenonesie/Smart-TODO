@@ -11,11 +11,11 @@ const createTaskElement = function(task) {
               <i  class="fa-regular fa-folder"></i>
               </article>
           <div class="dropdown-content">
-            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Watch</span>
-            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Eat</span>
-            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Read</span>
-            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Buy</span>
-            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">Other</span>
+            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Watch♦️ </span>
+            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Eat♦️ </span>
+            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Read♦️ </span>
+            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Buy♦️ </span>
+            <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">Other♦️ </span>
           </div>
         </div>
         `;
