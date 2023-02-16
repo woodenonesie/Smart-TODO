@@ -27,7 +27,7 @@ $("#new-task-plus").on("click", () => {
 
 // SLIDE TOGGLE FOR CHANGING CATEGORY (ON FOLDER ICON)
 $("#folder").on("click", () => {
-  $("#myDropdown").slideToggle(400);
+  $(".dropdown-content").slideToggle(400);
 });
 
 // IF CLICKED ON STAR ICON, CHANGE COLOR

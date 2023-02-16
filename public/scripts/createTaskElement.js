@@ -8,6 +8,7 @@ const createTaskElement = function(task) {
           <i  class="fa-regular fa-star"></i>
           <i  class="fa-regular fa-circle-xmark" data-taskid="${itemId}"></i>
           <i  class="fa-regular fa-folder"></i>
+          </article>
           <div class="dropdown-content">
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Watch</span>
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Eat</span>
@@ -15,7 +16,7 @@ const createTaskElement = function(task) {
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Buy</span>
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">Other</span>
           </div>
-        </article>`;
+        `;
 
   let categoryMap = { 'to Watch': "#45c4b0", 'To read': '#ca06ec', 'To Eat': '#7c001d', 'To Buy': '#0109ea' };
 
