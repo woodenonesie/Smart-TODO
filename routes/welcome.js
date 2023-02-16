@@ -34,17 +34,17 @@ module.exports = (db) => {
             [newEmail, newPassword]
           )
             .then(() => {
-              return res.redirect("/");
+              return res.send("You have registered successfully. Please Sign in now.");
             })
             .catch((err) => {
               console.log(err);
             });
         };
       }
-    )
-  })
+    );
+  });
   //////////
-  const getUserWithEmail = function (email) {
+  const getUserWithEmail = function(email) {
     return db
       .query(`SELECT * FROM users WHERE users.email = $1;`, [email])
       .then((result) => {
@@ -60,7 +60,7 @@ module.exports = (db) => {
   };
   exports.getUserWithEmail = getUserWithEmail;
 
-  const login = function (email, password) {
+  const login = function(email, password) {
     return getUserWithEmail(email).then((user) => {
       if (bcrypt.compareSync(password, user.password)) {
         return user;
@@ -97,4 +97,4 @@ module.exports = (db) => {
       });
   });
   return router;
-}
+};

@@ -1,5 +1,27 @@
 // Client facing scripts here
 $(document).ready(() => {
+
+  $('.reg-form').on('submit', function(e) {
+    e.preventDefault();
+
+    // Send a POST request to the backend
+    $.ajax({
+      url: '/register',
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function(response) {
+
+        alert(response);
+        window.location.href = "http://localhost:8080";
+
+      },
+      error: function(error) {
+
+        alert(error.responseJSON.message);
+      }
+    });
+  });
+
   ////WELCOME PAGE
   // HIDE REGISTER AND LOGIN FORMS
   $(".sig-form").hide();
@@ -62,4 +84,8 @@ $(".sub").on("submit", () => {
   $(".update").hide();
 });
 
+<<<<<<< Updated upstream
+=======
+$("#delete").on("click", () => { });
+>>>>>>> Stashed changes
 
