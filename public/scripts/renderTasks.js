@@ -32,6 +32,8 @@ let renderTasks = function(tasks) {
     dropdown.css('visibility', 'visible').slideDown();
   });
 
+
+
   $(".fa-star").on("click", function(event) {
     $(this).toggleClass('clicked');
   });
