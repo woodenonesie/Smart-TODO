@@ -47,10 +47,6 @@ $("#new-task-plus").on("click", () => {
   $(".taskForm").slideToggle(400);
 });
 
-// SLIDE TOGGLE FOR CHANGING CATEGORY (ON FOLDER ICON)
-$("#folder").on("click", () => {
-  $(".dropdown-content").slideToggle(400);
-});
 
 // IF CLICKED ON STAR ICON, CHANGE COLOR
 $("#star").on("click", () => {
@@ -83,9 +79,3 @@ $(".sub").on("submit", () => {
   $("textarea").empty();
   $(".update").hide();
 });
-
-<<<<<<< Updated upstream
-=======
-$("#delete").on("click", () => { });
->>>>>>> Stashed changes
-
