@@ -44,6 +44,7 @@ app.use('/api/tasks', tasksRoutes);
 //ures/endpoints
 const welcomeRoutes = require("./routes/welcome");
 const homeRoutes = require("./routes/home");
+
 app.use("/", welcomeRoutes(db));
 app.use("/index", homeRoutes(db));
 

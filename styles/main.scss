@@ -82,7 +82,7 @@ main {
   grid-template-rows: repeat(5, 40px);
 }
 .leftSidebar {
-  width: 180px;
+  width: 300px;
   min-width: 120px;
   min-height: 100vh;
   background-color: #e4f2e7;
@@ -201,7 +201,7 @@ article {
   border-radius: 6px;
   border: solid 0.1em black;
   border-left: solid 10px #ca06ec;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   display: grid;
   grid-template-columns: 10fr 1fr 1fr 1fr;

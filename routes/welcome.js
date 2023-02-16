@@ -26,24 +26,23 @@ module.exports = (db) => {
             .send(
               "Email already exists in the database, please <a href='/'>login</a>"
             );
-        }
-        console.log(result.rows);
-        console.log(result.rows.length);
+        } else {
+          db.query(
+            `INSERT INTO users (email, password)
+      VALUES ($1, $2)
+      RETURNING *;`,
+            [newEmail, newPassword]
+          )
+            .then((result) => {
+              return res.redirect("/");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        };
       }
-    );
-    db.query(
-      `INSERT INTO users (email, password)
-  VALUES ($1, $2)
-  RETURNING *;`,
-      [newEmail, newPassword]
     )
-      .then((result) => {
-        return res.redirect("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  })
   //////////
   const getUserWithEmail = function (email) {
     return db

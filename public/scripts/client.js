@@ -4,7 +4,11 @@ $(document).ready(function() {
   //gets tasks as JSON file from /api/tasks/
   loadTasks = function() {
     $.ajax('http://localhost:8080/api/tasks/ ', { method: 'GET' })
-      .then(renderTasks); //renderTweets.js
+    .then((data) => {
+      console.log(data)
+      return data
+    })
+      .then(renderTasks); //renderTasts.js
   };
   loadTasks();
 });

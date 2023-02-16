@@ -1,5 +1,4 @@
 const createTaskElement = function(task) {
-  const category = task.category;
   const itemName = task.task;
   const itemId = task.id;
 
@@ -20,10 +19,10 @@ const createTaskElement = function(task) {
 
   let categoryMap = { 'to Watch': "#45c4b0", 'To read': '#ca06ec', 'To Eat': '#7c001d', 'To Buy': '#0109ea' };
 
-  for (let key in categoryMap) {
-    if (category.includes(key)) {
-      $task.css('border-left', `solid 5px ${categoryMap[key]}`);
-    }
-  }
+  // for (let key in categoryMap) {
+  //   if (category.includes(key)) {
+  //     $task.css('border-left', `solid 5px ${categoryMap[key]}`);
+  //   }
+  // }
   return $task;
 };

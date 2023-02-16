@@ -4,7 +4,8 @@ const getAllUserTasks = (user_id) => {
   return db
     .query(`
   SELECT * FROM tasks
-  WHERE user_id = $1;
+  WHERE user_id = $1
+  ORDER BY id DESC;
   `,
     [user_id])
     .then((result) => {
