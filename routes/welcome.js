@@ -24,7 +24,7 @@ module.exports = (db) => {
           return res
             .status(400)
             .send(
-              "Email already exists in the database, please <a href='/'>login</a>"
+              "Email already exists"
             );
         } else {
           db.query(
