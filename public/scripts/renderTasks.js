@@ -7,38 +7,53 @@ let renderTasks = function(tasks) {
     // takes return value and appends it to the task container
     $('#task-container').append(newTask);
   }
-  $(".fa-circle-xmark").on("click", function (event) {
+  $(".fa-circle-xmark").on("click", function(event) {
     event.preventDefault();
 
     const taskId = $(this).data("taskid");
 
     $.ajax({
-      url:`http://localhost:8080/api/tasks/delete/${taskId}`,
+      url: `http://localhost:8080/api/tasks/delete/${taskId}`,
       method: 'POST'
     })
       .then(loadTasks) //function from client.js
-      .fail(handleServerError)
+      .fail(handleServerError);
   });
 
-  $(".fa-folder").on("click", function (event) {
-    event.preventDefault();
-    $(this).parent().siblings(".dropdown-content").slideToggle("slow")
+
+
+  $(".fa-folder").on("click", function(event) {
+    let dropdown = $(this).parent().siblings(".dropdown-content");
+    if (dropdown.is(':visible')) {
+      dropdown.slideUp();
+      return;
+    }
+    $('.dropdown-content').not(dropdown).slideUp();
+    dropdown.css('visibility', 'visible').slideDown();
   });
 
-  $(".dropdown-element").on("click", function (event) {
+
+
+  $(".fa-star").on("click", function(event) {
+    $(this).toggleClass('clicked');
+  });
+
+
+
+  $(".dropdown-element").on("click", function(event) {
     event.preventDefault();
 
     const newCategory = $(this).text();
     const taskId = $(this).data("taskid");
 
     $.ajax({
-      url:`http://localhost:8080/api/tasks/change/${taskId}`,
+      url: `http://localhost:8080/api/tasks/change/${taskId}`,
       method: 'POST',
-      data: JSON.stringify({newCategory}),
+      data: JSON.stringify({ newCategory }),
       dataType: 'json',
       contentType: 'application/json',
     })
       .then(loadTasks) //function from client.js
-      .fail(handleServerError)
+      .fail(handleServerError);
   });
 };

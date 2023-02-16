@@ -10,7 +10,7 @@ const createTaskElement = function(task) {
               <i  class="fa-regular fa-circle-xmark" data-taskid="${itemId}"></i>
               <i  class="fa-regular fa-folder"></i>
               </article>
-          <div class="dropdown-content">
+          <div style="display : none" class="dropdown-content">
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Watch</span>
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Eat</span>
             <span class="dropdown-element" data-taskId="${itemId}" href="javascript:">To Read</span>
