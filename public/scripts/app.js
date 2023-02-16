@@ -62,4 +62,4 @@ $(".sub").on("submit", () => {
   $(".update").hide();
 });
 
-$("#delete").on("click", () => {});
+
