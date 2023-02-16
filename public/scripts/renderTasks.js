@@ -27,7 +27,7 @@ let renderTasks = function(tasks) {
     event.preventDefault();
 
     const newCategory = $(this).text();
-    const taskId = $(this).data("taskId");
+    const taskId = $(this).data("taskid");
 
     $.ajax({
       url:`http://localhost:8080/api/tasks/change/${taskId}`,
