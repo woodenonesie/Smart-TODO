@@ -38,6 +38,9 @@ let renderTasks = function(tasks) {
     $(this).toggleClass('clicked');
   });
 
+  $(".fa-folder").on("click", function(event) {
+    $(this).toggleClass('clicked');
+  });
 
 
   $(".dropdown-element").on("click", function(event) {

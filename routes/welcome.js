@@ -27,14 +27,16 @@ module.exports = (db) => {
               "Email already exists"
             );
         } else {
+          req.session.userID = user.id;
+          req.session.userEmail = user.email;
           db.query(
             `INSERT INTO users (email, password)
       VALUES ($1, $2)
       RETURNING *;`,
-            [newEmail, newPassword]
-          )
+      [newEmail, newPassword]
+      )
             .then(() => {
-              return res.send("You have registered successfully. Please Sign in now.");
+              return res.send("You have registered successfully. Please sign in");
             })
             .catch((err) => {
               console.log(err);
