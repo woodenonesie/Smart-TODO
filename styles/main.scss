@@ -238,6 +238,10 @@ input {
   resize: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 .update-profile {
   font-weight: 500;
   font-size: 22px;
