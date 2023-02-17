@@ -17,7 +17,6 @@ module.exports = (db) => {
     user.password = bcrypt.hashSync(user.password, 10);
     const newEmail = user.email;
     const newPassword = user.password;
-    console.log(newPassword);
     db.query(`SELECT * FROM users WHERE email = $1;`, [newEmail]).then(
       (result) => {
         if (result.rows.length > 0) {
@@ -48,7 +47,6 @@ module.exports = (db) => {
     return db
       .query(`SELECT * FROM users WHERE users.email = $1;`, [email])
       .then((result) => {
-        console.log("e");
         if (!result) {
           return null;
         }
@@ -75,19 +73,16 @@ module.exports = (db) => {
     login(email, password)
       .then((user) => {
         if (!user) {
-          console.log("a");
           res
             .status(400)
             .send("Invalid login, please <a href='/'>try again</a>");
           return;
         }
-        console.log("b");
         req.session.userID = user.id;
         req.session.userEmail = user.email;
         return res.redirect("/index");
       })
       .catch((e) => {
-        console.log("c");
         res
           .status(400)
           .send(

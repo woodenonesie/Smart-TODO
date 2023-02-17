@@ -5,7 +5,6 @@ $(document).ready(function() {
   loadTasks = function() {
     $.ajax('http://localhost:8080/api/tasks/ ', { method: 'GET' })
     .then((data) => {
-      console.log(data)
       return data
     })
       .then(renderTasks); //renderTasts.js

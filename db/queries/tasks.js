@@ -31,7 +31,6 @@ const newTask = (user_id, task) => {
     [user_id, task.task, task.category])
     .then((result) => {
       if (result) {
-        console.log(result.rows);
         return result.rows;
       } else {
         return null;
@@ -53,7 +52,6 @@ const deleteTask = (user_id, id) => {
     [user_id, id])
     .then((result) => {
       if (result) {
-        console.log(result.rows);
         return result.rows;
       } else {
         return null;
@@ -76,7 +74,6 @@ const editTask = (user_id, id, category) => {
     [user_id, id, category])
     .then((result) => {
       if (result) {
-        console.log(result.rows);
         return result.rows;
       } else {
         return null;

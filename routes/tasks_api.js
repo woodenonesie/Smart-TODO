@@ -33,8 +33,6 @@ router.post('/create', (req, res) => {
     return;
   }
   const userId = req.session.userID;
-  console.log(userId)
-  // const userId = 1;
   const task = req.body.newTask;
 
   newCategory.newCategory(task)
