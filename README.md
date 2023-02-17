@@ -1,6 +1,13 @@
 ## Smart ToDo App
 =========
+Welcome to Smart ToDo! This app allows users to input the name of an item and it categorizes it into one of five groups:
+- To Watch
+- To Eat
+- To Read
+- To Buy
+- Other
 
+Users first must register and login at the welcome page. Once logged in, users will be able to see their todo's. They will have the ability to add and delete items, as well as change an item's category. When items are displayed, they have a colored border representing the category they are placed in.
 
 ## Getting Started
 
