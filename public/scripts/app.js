@@ -12,7 +12,7 @@ $(document).ready(() => {
       success: function(response) {
 
         alert(response);
-        window.location.href = "http://localhost:8080";
+        window.location.href = "http://localhost:8080/index";
 
       },
       error: function(error) {
@@ -27,7 +27,6 @@ $(document).ready(() => {
   $(".sig-form").hide();
   $(".reg-form").hide();
   $(".taskForm").hide();
-  $("#myDropdown").hide();
   $(".update").hide();
 });
 
@@ -48,11 +47,6 @@ $("#new-task-plus").on("click", () => {
 });
 
 
-// IF CLICKED ON STAR ICON, CHANGE COLOR
-$("#star").on("click", () => {
-  $("#star").toggleClass("clicked");
-});
-
 // SLIDE TOGGLE FOR NEW TASK FORM
 $("#plusSign").on("click", () => {
   if ($(".update").is(":hidden")) {
@@ -61,7 +55,7 @@ $("#plusSign").on("click", () => {
   }
   if ($(".update").is(":visible")) {
     $(".taskForm").slideToggle(400);
-    $(".update").hide();
+    $(".update").slideUp();
   }
 });
 
