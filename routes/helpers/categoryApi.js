@@ -4,8 +4,8 @@ const newCategory = (task) => {
   const apiKey = process.env.GOOGLE_KEY;
   const itemCategory = {
     "To Watch": ["Comics & Animation", "Film", "TV", "Movie", "Movies", "Video"],
-    "To Buy": ["Music & Audio", "Autos & Vehicles", "Computers & Electronics", "Games", "Crafts", "Home & Garden", "Animal Products & Services", "Real Estate", "Shopping", "Sporting Goods", "Cooking & Recipes", "Food"],
-    "To Eat": ["Restaurants"],
+    "To Buy": ["Music & Audio", "Autos & Vehicles", "Computers & Electronics", "Games", "Crafts", "Home & Garden", "Animal Products & Services", "Real Estate", "Shopping", "Sporting Goods"],
+    "To Eat": ["Restaurants", "Food & Drink"],
     "To Read": ["Books & Literature", "News"]
   };
   // Send a POST request
